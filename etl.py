@@ -31,6 +31,8 @@ airport_duplicate_name = airports_df[airports_df.duplicated(subset=['name'], kee
 for index, row in airport_duplicate_name.iterrows():
     print(row)
 
+print(airport_duplicate_name.shape)
+
     # 1. Define the correct countries for the problematic airports
 # (You can adjust these mappings based on your specific project requirements)
 corrections = {
