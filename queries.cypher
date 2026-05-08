@@ -14,8 +14,8 @@ MATCH (dep:Airport)-[r:ROUTE]->(arr:Airport)
 WITH 
     CASE WHEN dep.name < arr.name THEN dep.name ELSE arr.name END AS Airport1,
     CASE WHEN dep.name < arr.name THEN arr.name ELSE dep.name END AS Airport2,
-    r.airlines as airlines
-UNWIND airlines AS airline
+    r.airline_names as airline_names
+UNWIND airline_names AS airline
 RETURN Airport1, Airport2, count(DISTINCT airline) AS RecordCount
 ORDER BY RecordCount DESC
 LIMIT 1
@@ -59,4 +59,4 @@ RETURN
     plane_data.item AS AircraftType, 
     plane_data.count AS TotalRouteAppearances
 ORDER BY TotalRouteAppearances DESC
-LIMIT 10;
+LIMIT 5;

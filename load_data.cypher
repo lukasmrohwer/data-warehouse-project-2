@@ -14,5 +14,5 @@ LOAD CSV WITH HEADERS FROM 'file:///routes_edges.csv' AS row
 MATCH (dep:Airport {name: row.departure_airport})
 MATCH (arr:Airport {name: row.arrival_airport})
 MERGE (dep)-[r:ROUTE]->(arr)
-SET r.airlines = split(row.airlines, ';'),
+SET r.airline_names = split(row.airline_names, ';'),
     r.aircraft_types = split(row.aircraft_types, ';');
